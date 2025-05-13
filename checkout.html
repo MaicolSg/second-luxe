@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago - Second Luxe</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #FFD700;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #111;
+      padding: 2rem;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #FFD700;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: #FFD700;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Finalizar Compra</h1>
+    <form action="#" method="POST">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="direccion">Dirección de envío</label>
+      <input type="text" id="direccion" name="direccion" required>
+
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" required>
+
+      <label for="pago">Método de pago</label>
+      <select id="pago" name="pago" required>
+        <option value="">Selecciona uno</option>
+        <option value="nequi">Nequi</option>
+        <option value="daviplata">Daviplata</option>
+        <option value="tarjeta">Tarjeta de crédito</option>
+      </select>
+
+      <button type="submit">Pagar ahora</button>
+    </form>
+  </div>
+</body>
+</html>
