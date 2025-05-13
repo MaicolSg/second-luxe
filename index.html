@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Luxe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #FFD700;
+    }
+    header {
+      background-color: #111;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid #FFD700;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #222;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .product {
+      background-color: #111;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product h3 {
+      margin: 0.5rem 0;
+    }
+    .product button {
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    .product button:hover {
+      background-color: #e6c200;
+    }
+    #cart {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #111;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 250px;
+      color: #FFD700;
+    }
+    #cart h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+    #cart ul li {
+      margin: 0.5rem 0;
+    }
+    #cart button {
+      margin-top: 1rem;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      padding: 0.5rem;
+      width: 100%;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+    #cart button:hover {
+      background-color: #e6c200;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1rem;
+      border-top: 2px solid #FFD700;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Second Luxe</h1>
+  </header>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Catálogo</a>
+    <a href="#">Ofertas</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <div id="cart">
+    <h2>Carrito</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>Total: $<span id="cart-total">0</span> COP</strong></p>
+    <button onclick="goToCheckout()">Finalizar compra</button>
+  </div>
+
+  <main class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1602810318383-50a3b576f6b0?auto=format&fit=crop&w=500&q=60" alt="Chaqueta de Cuero">
+      <h3>Chaqueta de Cuero</h3>
+      <p>$180.000 COP</p>
+      <button onclick="addToCart('Chaqueta de Cuero', 180000)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1618354691373-f9c7c2c45634?auto=format&fit=crop&w=500&q=60" alt="Vestido Vintage">
+      <h3>Vestido Vintage</h3>
+      <p>$100.000 COP</p>
+      <button onclick="addToCart('Vestido Vintage', 100000)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=60" alt="Camisa Retro">
+      <h3>Camisa Retro</h3>
+      <p>$60.000 COP</p>
+      <button onclick="addToCart('Camisa Retro', 60000)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1618354692213-9a8aacc5f32e?auto=format&fit=crop&w=500&q=60" alt="Pantalón de Mezclilla">
+      <h3>Pantalón de Mezclilla</h3>
+      <p>$120.000 COP</p>
+      <button onclick="addToCart('Pantalón de Mezclilla', 120000)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=60" alt="Bolso Vintage">
+      <h3>Bolso Vintage</h3>
+      <p>$80.000 COP</p>
+      <button onclick="addToCart('Bolso Vintage', 80000)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1555529669-e69cba4b19f8?auto=format&fit=crop&w=500&q=60" alt="Zapatos Retro">
+      <h3>Zapatos Retro</h3>
+      <p>$140.000 COP</p>
+      <button onclick="addToCart('Zapatos Retro', 140000)">Agregar al carrito</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Second Luxe. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    let total = 0;
+
+    function addToCart(productName, price) {
+      const li = document.createElement('li');
+      li.textContent = `${productName} - $${price.toLocaleString()} COP`;
+      cartItems.appendChild(li);
+      total += price;
+      cartTotal.textContent = total.toLocaleString();
+    }
+
+    function goToCheckout() {
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>
